@@ -1,8 +1,11 @@
+import builtins
+
+
 _print = print
 
 
-def _null(*args):
+def _suppress(*args, **kwargs) -> None:
     pass
 
 
-print = _null
+builtins.print = _suppress
