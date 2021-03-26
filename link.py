@@ -1,16 +1,22 @@
+import sys
+import builtins
 from inspect import getframeinfo, stack
-    
+
 
 _print = print
 
 
-def _link(*values: object,
-          sep: Optional[str] = ' ',
-          end: Optional[str] = '\n',
-          file: Optional[SupportsWrite[str]] = sys.stdout,
-          flush: Optional[bool] = False) -> None:
-    caller = getframeinfo(stack()[1][0])
-    _print(f'{text}       \tFile \"{caller.filename}\", line {caller.lineno}')
+def _link(*objects, sep=' ', end='\n', file=sys.stdout, flush=False) -> None:
+    """
+    Like the builtin `print` but with the filename and line number appended.
+    """
+    info = getframeinfo(stack()[1][0])
+
+    # Pad evenly up to n chars
+    n = 24
+    pad = (n - len(sep.join((f'{e}' for e in objects)))) * ' '
+
+    _print(*objects, f'{pad} File \"{info.filename}\", line {info.lineno}', sep=sep, end=end, file=file, flush=flush)
 
 
-print = _link
+builtins.print = _link
