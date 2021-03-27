@@ -8,7 +8,7 @@ _print = print
 
 def _link(*objects, sep=' ', end='\n', file=sys.stdout, flush=False) -> None:
     """
-    Like the builtin `print` but with the filename and line number appended.
+    Adds filename and line number to the builtin `print` statement.
     """
     info = getframeinfo(stack()[1][0])
 
