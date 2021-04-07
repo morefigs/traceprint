@@ -12,10 +12,9 @@ Install via:
 
     pip install printhack
 
-## Example
+## Usage
 
-Simply add the following code to your script to hack your `print` statement:
+Simply add the following code to your script to enhance your `print` statement:
 
     from printhack import link
     link()
-    
