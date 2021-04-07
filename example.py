@@ -1,11 +1,15 @@
-from printhack import link
+from printhack import link, unlink, suppress
 
 
-print("hello world")
-print("hola mundo")
+print("this will print normally")
+link()
+print("these lines will print")
+print("with a timestamp")
 
-
-from printhack import suppress
-
-
-print("this won't print")
+from time import sleep
+sleep(.05)
+print("and a link")
+unlink()
+print("this will print normally again")
+suppress()
+print("this won't print at all")
