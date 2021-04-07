@@ -2,3 +2,5 @@
 /printhack.egg-info/
 /dist/
 /build/
+.DS_Store
+printhack/__pycache__/
