@@ -9,7 +9,7 @@ PAD_WIDTH = 30
 
 
 def _link_str(info) -> str:
-    return f'File \"{info.filename}\", line {info.lineno}, in {info.function}'
+    return f'File "{info.filename}", line {info.lineno}, in {info.function}'
 
 
 def _enable() -> None:
@@ -53,7 +53,7 @@ def _suppress() -> None:
     """
     Completely suppresses all print function calls.
     """
-    def _suppress(*objects, sep=' ', end='\n', file=sys.stdout, flush=False) -> None:
+    def _printnull(*objects, sep=' ', end='\n', file=sys.stdout, flush=False) -> None:
         pass
 
-    builtins.print = _suppress
+    builtins.print = _printnull
