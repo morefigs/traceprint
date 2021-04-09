@@ -17,3 +17,5 @@ Simply import `printstack` to enhance the `print` function:
     import printstack
 
     print("Hello world")
+    
+    # Hello world              File "/printstack/examples/example.py", line 3, in <module>
