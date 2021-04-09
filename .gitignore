@@ -3,4 +3,4 @@
 /dist/
 /build/
 .DS_Store
-printhack/__pycache__/
+printstack/__pycache__/

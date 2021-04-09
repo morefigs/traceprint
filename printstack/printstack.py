@@ -16,7 +16,7 @@ def _enable() -> None:
     """
     Adds filename and line number to the builtin print function.
     """
-    def _print_link(*objects, sep=' ', end='\n', file=sys.stdout, flush=False) -> None:
+    def _printstack(*objects, sep=' ', end='\n', file=sys.stdout, flush=False) -> None:
         # Overrides `end` to preserve formatting
         end = '\n'
 
@@ -42,7 +42,7 @@ def _enable() -> None:
             padding = " " * (PAD_WIDTH - len(sep.join((f'{e}' for e in objects))))
             print_orig(*objects, padding, _link_str(stack_infos[0]), sep=sep, end=end, file=file, flush=flush)
 
-    builtins.print = _print_link
+    builtins.print = _printstack
 
 
 def _disable():

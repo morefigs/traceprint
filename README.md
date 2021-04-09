@@ -1,20 +1,19 @@
-# printhack
+# printstack
 
 ## Description
 
-`printhack` appends a filename and line number to the output of the `print` function, so that editors such as PyCharm can link to the source of the `print` call.
+`printstack` adds stack trace links to the builtin print function, so that editors such as PyCharm can link you to the source of the `print` call.
 
 ![](examples/example.png?raw=true)
 
 ## Installation
 
-Install via:
-
-    pip install printhack
+    pip install printstack
 
 ## Usage
 
-Simply add the following code to your script to enhance your `print` statement:
+Simply import `printstack` to enhance the `print` function:
 
-    from printhack import link
-    link()
+    import printstack
+
+    print("Hello world")
