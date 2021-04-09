@@ -18,4 +18,4 @@ Simply import `printstack` to enhance the `print` function:
 
     print("Hello world")
     
-    # Hello world              File "/printstack/examples/example.py", line 3, in <module>
+    # Hello world              File "/dev/printstack/examples/example.py", line 3, in <module>
