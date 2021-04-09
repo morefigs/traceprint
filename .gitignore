@@ -1,6 +1,6 @@
 /.idea/
-/printhack.egg-info/
 /dist/
 /build/
 .DS_Store
-printstack/__pycache__/
+/printstack.egg-info/
+/printstack/__pycache__/
