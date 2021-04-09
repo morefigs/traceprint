@@ -4,7 +4,7 @@ from inspect import getframeinfo, stack
 print_orig = print
 
 
-MAX_STACK_DEPTH = 10
+MAX_STACK_DEPTH = 0
 PAD_WIDTH = 30
 
 
@@ -21,7 +21,9 @@ def _enable() -> None:
         end = '\n'
 
         # Subtract 1 to hide this function call
-        stack_depth = min(len(stack()) - 1, MAX_STACK_DEPTH)
+        stack_depth = len(stack()) - 1
+        if MAX_STACK_DEPTH:
+            stack_depth = min(stack_depth, MAX_STACK_DEPTH)
 
         # Get the stack trace (without list comprehension, which adds to the stack)
         stack_infos = []
