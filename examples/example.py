@@ -1,15 +1,12 @@
-from printhack import link, unlink, suppress
+import printhack
 
 
-print("this will print normally")
+print("Hello world")
+print("Hola mundo")
 
-link()
-print("these lines will print")
-print("with a timestamp")
-print("and a link")
 
-unlink()
-print("this will print normally again")
+def func():
+    print("Hello from func")
 
-suppress()
-print("this won't print at all")
+
+func()

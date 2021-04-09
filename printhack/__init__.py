@@ -1,1 +1,4 @@
-from .printhack import link, unlink, suppress
+from .printhack import _enable
+
+
+_enable()
