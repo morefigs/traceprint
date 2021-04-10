@@ -5,18 +5,18 @@ from inspect import getframeinfo, stack
 print_orig = print
 
 
-STACK_DEPTH = 0
-PADDING = 30
+LIMIT = 0
+RIGHT_ALIGN = 30
 
 
-def set_options(stack_depth: Optional[int] = None, padding: Optional[int] = None):
-    if stack_depth is not None:
-        global STACK_DEPTH
-        STACK_DEPTH = stack_depth
+def set_options(limit: Optional[int] = None, right_align: Optional[int] = None):
+    if limit is not None:
+        global LIMIT
+        LIMIT = limit
 
-    if padding is not None:
-        global PADDING
-        PADDING = padding
+    if right_align is not None:
+        global RIGHT_ALIGN
+        RIGHT_ALIGN = right_align
 
 
 def _link_str(info) -> str:
@@ -30,13 +30,13 @@ def enable() -> None:
     def _printstack(*objects, sep=' ', end='\n', file=sys.stdout, flush=False) -> None:
 
         # Subtract 1 to hide this function call
-        stack_depth = len(stack()) - 1
-        if STACK_DEPTH:
-            stack_depth = min(stack_depth, STACK_DEPTH)
+        limit = len(stack()) - 1
+        if LIMIT:
+            limit = min(limit, LIMIT)
 
         # Get the stack trace in reverse, similar to a traceback
         stack_infos = []
-        for i in range(stack_depth, 0, -1):
+        for i in range(limit, 0, -1):
             stack_infos.append(getframeinfo(stack()[i][0]))
 
         # Manually build the regular print string, appending end if not "empty"
@@ -44,7 +44,7 @@ def enable() -> None:
         print_str += end.strip()
 
         # Prints on a single line if depth is 1
-        if stack_depth == 1:
+        if limit == 1:
 
             # Calculate right justify padding, accounting for possible new lines
             try:
