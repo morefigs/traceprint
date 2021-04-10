@@ -1,4 +1,4 @@
-from .printstack import enable, disable, set_options
+from .printstack import set_options, enable, disable, suppress
 
 
 enable()
