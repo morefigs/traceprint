@@ -1,18 +1,29 @@
+from typing import Optional
 import sys
 import builtins
 from inspect import getframeinfo, stack
 print_orig = print
 
 
-MAX_STACK_DEPTH = 0
-PAD_WIDTH = 30
+STACK_DEPTH = 0
+PADDING = 30
+
+
+def set_options(stack_depth: Optional[int] = None, padding: Optional[int] = None):
+    if stack_depth is not None:
+        global STACK_DEPTH
+        STACK_DEPTH = stack_depth
+
+    if padding is not None:
+        global PADDING
+        PADDING = padding
 
 
 def _link_str(info) -> str:
     return f'File "{info.filename}", line {info.lineno}, in {info.function}'
 
 
-def _enable() -> None:
+def enable() -> None:
     """
     Adds filename and line number to the builtin print function.
     """
@@ -22,8 +33,8 @@ def _enable() -> None:
 
         # Subtract 1 to hide this function call
         stack_depth = len(stack()) - 1
-        if MAX_STACK_DEPTH:
-            stack_depth = min(stack_depth, MAX_STACK_DEPTH)
+        if STACK_DEPTH:
+            stack_depth = min(stack_depth, STACK_DEPTH)
 
         # Get the stack trace (without list comprehension, which adds to the stack)
         stack_infos = []
@@ -45,7 +56,7 @@ def _enable() -> None:
     builtins.print = _printstack
 
 
-def _disable():
+def disable():
     builtins.print = print_orig
 
 
