@@ -47,7 +47,12 @@ def enable() -> None:
         if stack_depth == 1:
 
             # Calculate right justify padding, accounting for possible new lines
-            padding = ' ' * (PADDING - len(print_str.splitlines()[-1]))
+            try:
+                width = len(print_str.splitlines()[-1])
+            except IndexError:
+                width = 0
+            padding = '  ' + ' ' * (RIGHT_ALIGN - width - 2)
+
             complete_str = f'{print_str}{padding}{_link_str(stack_infos[0])}'
 
         # Prints similar to exception traceback for multiple lines
