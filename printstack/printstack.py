@@ -47,10 +47,10 @@ def enable() -> None:
         if limit == 1:
 
             # Calculate right justify padding, accounting for possible new lines
-            try:
-                width = len(print_str.splitlines()[-1])
-            except IndexError:
+            if len(print_str) == 0 or print_str.endswith('\n') or print_str.endswith('\r'):
                 width = 0
+            else:
+                width = len(print_str.splitlines()[-1])
             padding = '  ' + ' ' * (RIGHT_ALIGN - width - 2)
 
             complete_str = f'{print_str}{padding}{_link_str(stack_infos[0])}'
