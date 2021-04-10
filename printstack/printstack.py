@@ -41,7 +41,7 @@ def enable() -> None:
 
         # Manually build the regular print string, appending end if not "empty"
         print_str = sep.join((str(e) for e in objects))
-        print_str += end.strip()
+        print_str += end.rstrip()
 
         # Prints on a single line if depth is 1
         if limit == 1:
