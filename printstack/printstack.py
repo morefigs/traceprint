@@ -4,6 +4,9 @@ import builtins
 from inspect import getframeinfo, stack, Traceback
 
 
+INDENT = 2 * ' '
+
+
 class Options:
     limit = 0
     right_align = 30
@@ -51,14 +54,14 @@ def _build_padding_str(print_str: str) -> str:
         width = 0
     else:
         width = len(print_str.splitlines()[-1])
-    return ' ' * (Options.right_align - width)
+    return ' ' * (Options.right_align - width - len(INDENT))
 
 
 def _build_link_str(frame_info: Traceback) -> str:
     """
     Build the clickable link string for a frame info object.
     """
-    return f'File "{frame_info.filename}", line {frame_info.lineno}, in {frame_info.function}'
+    return f'{INDENT}File "{frame_info.filename}", line {frame_info.lineno}, in {frame_info.function}'
 
 
 def _build_full_str(*objects, sep: str, end: str, frame_infos: List[Traceback]) -> str:
@@ -74,7 +77,7 @@ def _build_full_str(*objects, sep: str, end: str, frame_infos: List[Traceback]) 
         return f'{print_str}{padding_str}{link_str}'
 
     # Else print in reverse similar to exception traceback with multiple lines
-    link_str = '\n'.join(f'  {_build_link_str(frame_info)}' for frame_info in reversed(frame_infos))
+    link_str = '\n'.join(f'{_build_link_str(frame_info)}' for frame_info in reversed(frame_infos))
     return f'\n{link_str}\n{print_str}'
 
 
