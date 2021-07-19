@@ -19,7 +19,7 @@ def set_options(limit: Optional[int] = None,
                 flatten_recurring_outputs: Optional[bool] = None):
     """
     Set printstack options.
-    :param limit: print up to limit stack entries, if limit is above zero.
+    :param limit: limit depth of stack entries displayed, if limit is above zero.
     :param right_align: number of characters to offset the link text to the right by.
     :param flatten_recurring_outputs: display recurring outputs (e.g. from a loop) inline instead of multiline.
     """

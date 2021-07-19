@@ -22,8 +22,8 @@ Simply import `printstack` to enhance the `print` function:
 
 <br>Some options are configurable:
 
-    import printstack
-    printstack.set_options(
-        limit=1,        # limits the depth of the stack links, 0 for no limit
-        right_align=40  # adjusts the right align width of the stack link
+    import printstack; printstack.set_options(
+        limit=1,                        # limit depth of stack entries displayed, if limit is above zero
+        right_align=40,                 # number of characters to offset the link text to the right by
+        flatten_recurring_outputs=True  # display recurring outputs (e.g. from a loop) inline instead of multiline
     )
