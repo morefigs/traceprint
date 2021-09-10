@@ -1,5 +1,5 @@
 # printstack
-[![pip installs](https://pepy.tech/badge/printstack)](https://pepy.tech/project/printstack)
+[![pip installs](https://static.pepy.tech/personalized-badge/printstack?period=total&units=international_system&left_color=grey&right_color=blue&left_text=pip%20installs)](https://pepy.tech/project/printstack)
 
 ## Description
 
