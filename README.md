@@ -1,4 +1,5 @@
 # printstack
+[![pip installs](https://pepy.tech/badge/printstack)](https://pepy.tech/project/printstack)
 
 ## Description
 
