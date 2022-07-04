@@ -1,4 +1,4 @@
-import printstack
+import traceprint
 
 
 # Just some visual tests for now...

@@ -2,5 +2,5 @@
 /dist/
 /build/
 .DS_Store
-/printstack.egg-info/
-/printstack/__pycache__/
+/traceprint.egg-info/
+/traceprint/__pycache__/

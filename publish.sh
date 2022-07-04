@@ -2,7 +2,7 @@
 
 rm -rf build
 rm -rf dist
-rm -rf printstack.egg-info
+rm -rf traceprint.egg-info
 
 pipenv install --dev --skip-lock
 pipenv run python -m build

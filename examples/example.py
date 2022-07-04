@@ -1,18 +1,12 @@
-import printstack
+import traceprint
 
 
 print("Hello world")
 print("Hola mundo")
 
 
-def func(i=None):
-    print(f'Hello from func, {i=}')
-
-
-def func_with_loop():
-    for i in range(5):
-        func(i)
+def func():
+    print(f'Hello from func')
 
 
 func()
-func_with_loop()
