@@ -4,6 +4,8 @@ PyCharm can link you to the source of the print call.
 """
 
 from .printstack import set_options, enable, disable, suppress
+from warnings import warn
+warn('The "printstack" package has now been renamed to "traceprint", please install and use "traceprint" instead')
 
 
 enable()
