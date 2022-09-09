@@ -1,11 +1,14 @@
 # traceprint
-[![pip installs](https://static.pepy.tech/personalized-badge/printstack?period=total&units=international_system&left_color=grey&right_color=blue&left_text=pip%20installs)](https://pepy.tech/project/printstack)
+
+_"I never use the print statement for debugging, but when I do I use traceprint."_ - Guido van Rossum.
 
 `traceprint` is a Python package that adds stack trace links to the builtin print function, so that editors such as PyCharm can link to the source of the `print` call.
 
 ![](examples/example.png?raw=true)
 
 ## Installation
+
+[![Downloads](https://pepy.tech/badge/traceprint)](https://pepy.tech/project/traceprint)
 
     pip install traceprint
 
